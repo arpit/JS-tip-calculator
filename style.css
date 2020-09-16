@@ -1,0 +1,113 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+  
+}
+
+:root{
+  --green-background: #3BBBAF;
+  --green-dark: #0B1923;
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  margin: 2em;
+  
+  background:var(--green-dark);
+}
+
+#content{
+  background:white;
+  margin:0 auto;
+  width:400px;
+  padding:20px;
+  border-radius:8px;
+  background: var(--green-background);
+}
+
+button{
+  font-size:16px;
+  font-weight:bold;
+  background:white;
+  border:none;
+  padding:12px;
+  border-radius:4px;
+  
+}
+
+h1 {
+  color:white;
+  font-size:18px;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+h1::before{
+  content:"💵";
+  margin-right:8px;
+}
+
+.user_input{
+  padding:16px 20px;
+  border:none;
+  border-radius:8px;
+  margin-bottom:20px;
+  width:100%;
+  outline:none;
+  font-size:30px;
+  text-align:center;
+}
+
+
+#tip-options{
+  text-align:center;
+}
+
+
+#buttons-container{
+  display:grid;
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+  grid-template-columns: auto auto auto;
+  margin:50px 0;
+}
+
+#custom_tip{
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+#buttons-container button.selectedTip{
+  background:#CAF0ED;
+  border:4px solid black;
+  
+}
+
+#buttons-container div {
+  padding:10px 20px;
+  
+}
+
+
+.output{
+  padding:16px 20px;
+  border:none;
+  border-radius:8px;
+  margin-bottom:20px;
+  width:100%;
+  font-size:30px;
+  text-align:center;
+  background:white;
+  text-transform:uppercase;
+  
+}
+
+.output span:first-child{
+  color:#ccc;
+  margin-right:20px;
+}
+
+media screen and (max-width: 600px) {
+  
+}
