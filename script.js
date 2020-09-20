@@ -1,12 +1,10 @@
-let currentRate = getRateFromButton(document.querySelector(".selectedTip"));
-
 let formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
 });
 
 document.querySelectorAll(".user_input").forEach(e => e.addEventListener("keypress", function (evt) {
-    if (evt.which < 48 || evt.which > 57)
+    if (evt.keyCode < 48 || evt.keyCode > 57)
     {
       evt.preventDefault();
       return;
@@ -22,7 +20,6 @@ document.querySelector("#custom_tip").addEventListener("input", function (evt) {
   if(old){
     old.classList.remove("selectedTip");
   }
-  currentRate = parseInt(evt.target.value);
   calculateTip();
 });
 
@@ -34,7 +31,6 @@ document.querySelectorAll("#buttons-container button").forEach((e)=>{
       old.classList.remove("selectedTip");
     }
     e.classList.add("selectedTip");
-    currentRate = getRateFromButton(e)
     calculateTip();
   })
 })
@@ -45,15 +41,27 @@ function getRateFromButton(button){
   return parseInt(parsed);
 }
 
+
+function currentRate(){
+  let selectedButton = document.querySelector(".selectedTip");
+  if(!selectedButton){
+    return document.querySelector("#custom_tip").value;
+  }
+  else{
+    return getRateFromButton(selectedButton)
+  }
+}
+
+function getInput(){
+  const data = document.querySelector("#input").value;
+  if(!data || data === "") return 0;
+  return parseInt(data);
+}
+
 function calculateTip(){
-  const raw = document.querySelector("#input").value;
-  if(!raw || raw === "") return;
-  const input = parseInt(raw);
-  
-  let tip = input * (currentRate/100.0);
-  
-  
-  
+  const input = getInput();
+  const rate = currentRate();
+  let tip = input * (rate/100.0);
   document.querySelector("#tip").innerHTML = formatter.format(tip);
   document.querySelector("#total").innerHTML = formatter.format(input + tip);
 }

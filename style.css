@@ -17,7 +17,7 @@ body {
   background:var(--green-dark);
 }
 
-#content{
+main{
   background:white;
   margin:0 auto;
   width:400px;
@@ -33,7 +33,6 @@ button{
   border:none;
   padding:12px;
   border-radius:4px;
-  
 }
 
 h1 {
@@ -90,7 +89,7 @@ h1::before{
 }
 
 
-.output{
+#output_section div{
   padding:16px 20px;
   border:none;
   border-radius:8px;
@@ -100,12 +99,15 @@ h1::before{
   text-align:center;
   background:white;
   text-transform:uppercase;
+  color:#ccc;
   
 }
 
-.output span:first-child{
-  color:#ccc;
-  margin-right:20px;
+#output_section div span{
+  color:#333;
+  display:inline-block;
+  margin-left:12px;
+  
 }
 
 media screen and (max-width: 600px) {
